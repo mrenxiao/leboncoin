@@ -16,6 +16,11 @@
 		4D47361F299A24050092004D /* LeboncoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47361E299A24050092004D /* LeboncoinTests.swift */; };
 		4D473629299A24050092004D /* LeboncoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D473628299A24050092004D /* LeboncoinUITests.swift */; };
 		4D47362B299A24050092004D /* LeboncoinUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47362A299A24050092004D /* LeboncoinUITestsLaunchTests.swift */; };
+		4D9DF264299A270C00284DE9 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DF263299A270C00284DE9 /* NetworkService.swift */; };
+		4D9DF266299A2B0400284DE9 /* AnnouncementsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DF265299A2B0400284DE9 /* AnnouncementsService.swift */; };
+		4D9DF269299A352100284DE9 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DF268299A352100284DE9 /* Announcement.swift */; };
+		4D9DF26C299A354800284DE9 /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DF26B299A354800284DE9 /* CategoriesService.swift */; };
+		4D9DF26E299A357700284DE9 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DF26D299A357700284DE9 /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		4D473624299A24050092004D /* LeboncoinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeboncoinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D473628299A24050092004D /* LeboncoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeboncoinUITests.swift; sourceTree = "<group>"; };
 		4D47362A299A24050092004D /* LeboncoinUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeboncoinUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4D9DF263299A270C00284DE9 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		4D9DF265299A2B0400284DE9 /* AnnouncementsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementsService.swift; sourceTree = "<group>"; };
+		4D9DF268299A352100284DE9 /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
+		4D9DF26B299A354800284DE9 /* CategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesService.swift; sourceTree = "<group>"; };
+		4D9DF26D299A357700284DE9 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +109,7 @@
 		4D473606299A24030092004D /* Leboncoin */ = {
 			isa = PBXGroup;
 			children = (
+				4D9DF262299A25A200284DE9 /* Services */,
 				4D473607299A24030092004D /* AppDelegate.swift */,
 				4D473609299A24030092004D /* SceneDelegate.swift */,
 				4D47360B299A24030092004D /* ViewController.swift */,
@@ -125,6 +136,34 @@
 				4D47362A299A24050092004D /* LeboncoinUITestsLaunchTests.swift */,
 			);
 			path = LeboncoinUITests;
+			sourceTree = "<group>";
+		};
+		4D9DF262299A25A200284DE9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4D9DF267299A34F300284DE9 /* Announcements */,
+				4D9DF26A299A352A00284DE9 /* Categories */,
+				4D9DF263299A270C00284DE9 /* NetworkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4D9DF267299A34F300284DE9 /* Announcements */ = {
+			isa = PBXGroup;
+			children = (
+				4D9DF268299A352100284DE9 /* Announcement.swift */,
+				4D9DF265299A2B0400284DE9 /* AnnouncementsService.swift */,
+			);
+			path = Announcements;
+			sourceTree = "<group>";
+		};
+		4D9DF26A299A352A00284DE9 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4D9DF26D299A357700284DE9 /* Category.swift */,
+				4D9DF26B299A354800284DE9 /* CategoriesService.swift */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +297,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D9DF269299A352100284DE9 /* Announcement.swift in Sources */,
+				4D9DF266299A2B0400284DE9 /* AnnouncementsService.swift in Sources */,
+				4D9DF26C299A354800284DE9 /* CategoriesService.swift in Sources */,
 				4D47360C299A24030092004D /* ViewController.swift in Sources */,
 				4D473608299A24030092004D /* AppDelegate.swift in Sources */,
+				4D9DF264299A270C00284DE9 /* NetworkService.swift in Sources */,
 				4D47360A299A24030092004D /* SceneDelegate.swift in Sources */,
+				4D9DF26E299A357700284DE9 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
