@@ -13,7 +13,7 @@ import Combine
 protocol CategoriesServiceProtocol: AnyObject {
     var networkService: NetworkServiceProtocol { get }
 
-    func getCategories() -> AnyPublisher<[Category], Error>
+    func fetchCategories() -> AnyPublisher<[AnnouncementCategory], Error>
 }
 
 final class CategoriesService: CategoriesServiceProtocol {
@@ -24,11 +24,11 @@ final class CategoriesService: CategoriesServiceProtocol {
         self.networkService = networkService
     }
     
-    func getCategories() -> AnyPublisher<[Category], Error> {
+    func fetchCategories() -> AnyPublisher<[AnnouncementCategory], Error> {
         let endpoint = Endpoint.categories
         
         return networkService.get(
-            type: [Category].self,
+            type: [AnnouncementCategory].self,
             url: endpoint.url,
             headers: endpoint.headers
         )

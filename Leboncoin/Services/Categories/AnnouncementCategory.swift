@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Category: Codable {
+struct AnnouncementCategory: Codable {
     let id: Int
     let name: String
 }

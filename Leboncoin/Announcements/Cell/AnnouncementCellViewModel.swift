@@ -9,9 +9,10 @@ import Foundation
 
 struct AnnouncementCellViewModel {
     private let announcement: Announcement
+    private let categoriesProvider: CategoriesProvider
     
-    var categoryId: String {
-        "\(announcement.categoryId)"
+    var category: String {
+        return categoriesProvider.categories.first(where: { $0.id == announcement.categoryId })?.name ?? ""
     }
     
     var creationDate: String {
@@ -26,6 +27,10 @@ struct AnnouncementCellViewModel {
         announcement.imageUrls["small"]
     }
     
+    var isUrgent: Bool {
+        announcement.isUrgent
+    }
+    
     var price: String {
         "\(announcement.price.clean) €"
     }
@@ -34,8 +39,9 @@ struct AnnouncementCellViewModel {
         announcement.title
     }
     
-    init(announcement: Announcement) {
+    init(announcement: Announcement, categoriesProvider: CategoriesProvider) {
         self.announcement = announcement
+        self.categoriesProvider = categoriesProvider
     }
     
     func loadImage(completion: @escaping (Data?, Error?) -> Void) {

@@ -47,7 +47,7 @@ class AnnouncementCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.numberOfLines = 2
-        label.textColor = .black
+        label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -55,7 +55,7 @@ class AnnouncementCell: UITableViewCell {
     private let priceLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.textColor = .black
+        label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -74,6 +74,14 @@ class AnnouncementCell: UITableViewCell {
         label.textColor = .systemGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    private let urgentButton: UIButton = {
+        let button = UIButton()
+        button.tintColor = .label
+        button.setImage(UIImage(systemName: "exclamationmark.circle" ), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
     // MARK: - Init
@@ -99,6 +107,7 @@ class AnnouncementCell: UITableViewCell {
         contentView.addSubview(announcementImageView)
         contentView.addSubview(topTextStackView)
         contentView.addSubview(bottomTextStackView)
+        contentView.addSubview(urgentButton)
         topTextStackView.addArrangedSubview(titleLabel)
         topTextStackView.addArrangedSubview(priceLabel)
         bottomTextStackView.addArrangedSubview(categoryLabel)
@@ -115,18 +124,24 @@ class AnnouncementCell: UITableViewCell {
         topTextStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constant.padding).isActive = true
         topTextStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constant.padding).isActive = true
 
+        urgentButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constant.padding).isActive = true
+        urgentButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constant.padding).isActive = true
+        urgentButton.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        urgentButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
         bottomTextStackView.leadingAnchor.constraint(equalTo: topTextStackView.leadingAnchor).isActive = true
-        bottomTextStackView.trailingAnchor.constraint(equalTo: topTextStackView.trailingAnchor).isActive = true
+        bottomTextStackView.trailingAnchor.constraint(equalTo: urgentButton.leadingAnchor, constant: -Constant.padding).isActive = true
         bottomTextStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constant.padding).isActive = true
     }
     
-    func configure(with announcement: Announcement) {
-        let viewModel = AnnouncementCellViewModel(announcement: announcement)
+    func configure(with announcement: Announcement, categoriesProvider: CategoriesProvider) {
+        let viewModel = AnnouncementCellViewModel(announcement: announcement, categoriesProvider: categoriesProvider)
         
         titleLabel.text = viewModel.title
         priceLabel.text = viewModel.price
-        categoryLabel.text = viewModel.categoryId
+        categoryLabel.text = viewModel.category
         creationDateLabel.text = viewModel.creationDate
+        urgentButton.isHidden = !viewModel.isUrgent
         
         viewModel.loadImage { data, error in
             if let data = data, let image = UIImage(data: data) {

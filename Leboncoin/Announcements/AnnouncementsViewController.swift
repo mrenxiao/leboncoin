@@ -14,7 +14,11 @@ final class AnnouncementsViewController: UITableViewController {
     
     private var cancellables = Set<AnyCancellable>()
     weak var delegate: MenuViewControllerDelegate?
-    private let viewModel = AnnouncementsViewModel()
+    private let viewModel = AnnouncementsViewModel(
+        announcementsService: AnnouncementsService(networkService: NetworkService()),
+        categoriesService: CategoriesService(networkService: NetworkService()),
+        categoriesProvider: CategoriesManager.shared
+    )
     
     // MARK: - Init
     
@@ -36,7 +40,9 @@ final class AnnouncementsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.getAnnouncements()
+        viewModel.fetchCategories { [weak self] in
+            self?.viewModel.fetchAnnouncements()
+        }
         bindViewModel()
     }
     
@@ -63,7 +69,7 @@ final class AnnouncementsViewController: UITableViewController {
         }
 
         let item = viewModel.announcements[indexPath.row]
-        cell.configure(with: item)
+        cell.configure(with: item, categoriesProvider: viewModel.categoriesProvider)
         
         return cell
     }

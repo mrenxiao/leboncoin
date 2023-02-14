@@ -13,7 +13,7 @@ import Combine
 protocol AnnouncementsServiceProtocol: AnyObject {
     var networkService: NetworkServiceProtocol { get }
 
-    func getAnnouncements() -> AnyPublisher<[Announcement], Error>
+    func fetchAnnouncements() -> AnyPublisher<[Announcement], Error>
 }
 
 final class AnnouncementsService: AnnouncementsServiceProtocol {
@@ -24,7 +24,7 @@ final class AnnouncementsService: AnnouncementsServiceProtocol {
         self.networkService = networkService
     }
     
-    func getAnnouncements() -> AnyPublisher<[Announcement], Error> {
+    func fetchAnnouncements() -> AnyPublisher<[Announcement], Error> {
         let endpoint = Endpoint.announcements
         
         return networkService.get(
