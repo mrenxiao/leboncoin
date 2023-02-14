@@ -53,17 +53,19 @@ extension HomeViewController: UISplitViewControllerDelegate {
 // MARK: - MenuViewControllerDelegate
 
 extension HomeViewController: MenuViewControllerDelegate {
-    func didTapMenuItem(at index: Int, title: String?) {
+    func didTapMenuItem(announcement: Announcement) {
         (splitVC.viewControllers.last as? UINavigationController)?.popToRootViewController(animated: false)
         
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .white
-        viewController.title = title
+        let viewController = AnnouncementDetailViewController(
+            viewModel: AnnouncementViewModel(
+                announcement: announcement,
+                categoriesProvider: CategoriesManager.shared)
+        )
         
         (splitVC.viewControllers.last as? UINavigationController)?.pushViewController(viewController, animated: true)
     }
 }
 
 protocol MenuViewControllerDelegate: AnyObject {
-    func didTapMenuItem(at index: Int, title: String?)
+    func didTapMenuItem(announcement: Announcement)
 }

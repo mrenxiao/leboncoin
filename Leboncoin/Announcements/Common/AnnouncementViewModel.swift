@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct AnnouncementCellViewModel {
+struct AnnouncementViewModel {
     private let announcement: Announcement
     private let categoriesProvider: CategoriesProvider
     
     var category: String {
-        return categoriesProvider.categories.first(where: { $0.id == announcement.categoryId })?.name ?? ""
+        categoriesProvider.categories.first(where: { $0.id == announcement.categoryId })?.name ?? ""
     }
     
     var creationDate: String {
@@ -23,8 +23,16 @@ struct AnnouncementCellViewModel {
         return DateFormatter.dayMonthHourMinFormatter.string(from: date)
     }
     
-    var imageUrl: String? {
+    var description: String {
+        announcement.description
+    }
+    
+    var smallImageUrl: String? {
         announcement.imageUrls["small"]
+    }
+    
+    var bigImageUrl: String? {
+        announcement.imageUrls["thumb"]
     }
     
     var isUrgent: Bool {
@@ -44,7 +52,8 @@ struct AnnouncementCellViewModel {
         self.categoriesProvider = categoriesProvider
     }
     
-    func loadImage(completion: @escaping (Data?, Error?) -> Void) {
+    func loadImage(isSmall: Bool = true, completion: @escaping (Data?, Error?) -> Void) {
+        let imageUrl = isSmall ? smallImageUrl : bigImageUrl
         guard let urlString = imageUrl, let url = URL(string: urlString) else { return }
         DataLoader().loadData(url: url) { data, error in
             completion(data, error)

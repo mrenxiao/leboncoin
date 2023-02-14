@@ -28,7 +28,7 @@ final class AnnouncementsViewController: UITableViewController {
         title = "Leboncoin"
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(AnnouncementCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(AnnouncementCell.self, forCellReuseIdentifier: AnnouncementCell.identifier)
     }
     
     required init?(coder: NSCoder) {
@@ -64,7 +64,7 @@ final class AnnouncementsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? AnnouncementCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AnnouncementCell.identifier, for: indexPath) as? AnnouncementCell else {
             return UITableViewCell()
         }
 
@@ -76,8 +76,8 @@ final class AnnouncementsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let cellText = tableView.cellForRow(at: indexPath)?.textLabel?.text
-        delegate?.didTapMenuItem(at: indexPath.row, title: cellText)
+        let item = viewModel.announcements[indexPath.row]
+        delegate?.didTapMenuItem(announcement: item)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

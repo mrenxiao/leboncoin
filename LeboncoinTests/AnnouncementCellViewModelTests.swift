@@ -23,11 +23,14 @@ class AnnouncementCellViewModelTests: XCTestCase {
             ],
             creationDate: "2019-11-05T15:56:59+0000",
             isUrgent: false)
-        let viewModel = AnnouncementCellViewModel(announcement: mock, categoriesProvider: CategoriesProviderMock())
+        let viewModel = AnnouncementViewModel(announcement: mock, categoriesProvider: CategoriesProviderMock())
         
         XCTAssertEqual(viewModel.category, "Bricolage")
         XCTAssertEqual(viewModel.creationDate, "5 novembre 15:56")
-        XCTAssertEqual(viewModel.imageUrl, "https://raw.githubusercontent.com/small.jpg")
+        XCTAssertEqual(viewModel.description, "Description")
+        XCTAssertEqual(viewModel.isUrgent, false)
+        XCTAssertEqual(viewModel.smallImageUrl, "https://raw.githubusercontent.com/small.jpg")
+        XCTAssertEqual(viewModel.bigImageUrl, "https://raw.githubusercontent.com/thumb.jpg")
         XCTAssertEqual(viewModel.price, "140 €")
         XCTAssertEqual(viewModel.title, "Title")
     }
