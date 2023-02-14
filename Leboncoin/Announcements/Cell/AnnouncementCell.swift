@@ -12,14 +12,15 @@ class AnnouncementCell: UITableViewCell {
     // MARK: - Constant
     
     enum Constant {
-        static let imageHeight: CGFloat = 150
+        static let cellHeight: CGFloat = 150
+        static let padding: CGFloat = 16
     }
     
     // MARK: - Outlets
     
     private let announcementImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 8
         imageView.clipsToBounds = true
@@ -29,6 +30,7 @@ class AnnouncementCell: UITableViewCell {
     private let topTextStackView: UIStackView = {
        let stackView = UIStackView()
         stackView.axis = .vertical
+        stackView.spacing = 4
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -36,6 +38,7 @@ class AnnouncementCell: UITableViewCell {
     private let bottomTextStackView: UIStackView = {
        let stackView = UIStackView()
         stackView.axis = .vertical
+        stackView.spacing = 4
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -51,7 +54,7 @@ class AnnouncementCell: UITableViewCell {
     
     private let priceLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.boldSystemFont(ofSize: 14)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -103,18 +106,18 @@ class AnnouncementCell: UITableViewCell {
     }
     
     private func configureConstraints() {
-        announcementImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        announcementImageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        announcementImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        announcementImageView.widthAnchor.constraint(equalToConstant: Constant.imageHeight).isActive = true
+        announcementImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constant.padding).isActive = true
+        announcementImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constant.padding).isActive = true
+        announcementImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constant.padding).isActive = true
+        announcementImageView.widthAnchor.constraint(equalToConstant: Constant.cellHeight - 2 * Constant.padding).isActive = true
         
-        topTextStackView.leadingAnchor.constraint(equalTo: announcementImageView.trailingAnchor).isActive = true
-        topTextStackView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        topTextStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        topTextStackView.leadingAnchor.constraint(equalTo: announcementImageView.trailingAnchor, constant: Constant.padding).isActive = true
+        topTextStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constant.padding).isActive = true
+        topTextStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constant.padding).isActive = true
 
-        bottomTextStackView.leadingAnchor.constraint(equalTo: announcementImageView.trailingAnchor).isActive = true
-        bottomTextStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        bottomTextStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        bottomTextStackView.leadingAnchor.constraint(equalTo: topTextStackView.leadingAnchor).isActive = true
+        bottomTextStackView.trailingAnchor.constraint(equalTo: topTextStackView.trailingAnchor).isActive = true
+        bottomTextStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constant.padding).isActive = true
     }
     
     func configure(with announcement: Announcement) {
@@ -122,7 +125,19 @@ class AnnouncementCell: UITableViewCell {
         
         titleLabel.text = viewModel.title
         priceLabel.text = viewModel.price
-        categoryLabel.text = viewModel.category
+        categoryLabel.text = viewModel.categoryId
         creationDateLabel.text = viewModel.creationDate
+        
+        viewModel.loadImage { data, error in
+            if let data = data, let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    self.announcementImageView.image = image
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.announcementImageView.image = UIImage(named: "image-placeholder")
+                }
+            }
+        }
     }
 }

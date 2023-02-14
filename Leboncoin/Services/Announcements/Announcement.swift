@@ -12,7 +12,7 @@ struct Announcement: Codable {
     let categoryId: Int
     let title: String
     let description: String
-    let price: Double
+    let price: Float
     let imageUrls: [String: String]
     let creationDate: String
     let isUrgent: Bool

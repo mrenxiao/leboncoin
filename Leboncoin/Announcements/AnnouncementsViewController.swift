@@ -75,6 +75,6 @@ final class AnnouncementsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return AnnouncementCell.Constant.imageHeight
+        return AnnouncementCell.Constant.cellHeight
     }
 }
