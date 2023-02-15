@@ -29,14 +29,15 @@ class HomeViewController: UIViewController {
         let menuViewController = AnnouncementsViewController(style: .plain)
         menuViewController.delegate = self
 
-        let detailViewController = UIViewController()
-        detailViewController.title = "Detail"
-        detailViewController.view.backgroundColor = .white
+        let welcomeViewController = WelcomeViewController()
+        welcomeViewController.view.backgroundColor = .white
         
         splitVC.viewControllers = [
             UINavigationController(rootViewController: menuViewController),
-            UINavigationController(rootViewController: detailViewController)
+            UINavigationController(rootViewController: welcomeViewController)
         ]
+        
+        welcomeViewController.navigationController?.navigationBar.tintColor = .label
         
         view.addSubview(splitVC.view)
     }
@@ -54,15 +55,20 @@ extension HomeViewController: UISplitViewControllerDelegate {
 
 extension HomeViewController: MenuViewControllerDelegate {
     func didTapMenuItem(announcement: Announcement) {
-        (splitVC.viewControllers.last as? UINavigationController)?.popToRootViewController(animated: false)
-        
         let viewController = AnnouncementDetailViewController(
             viewModel: AnnouncementViewModel(
                 announcement: announcement,
                 categoriesProvider: CategoriesManager.shared)
         )
         
-        (splitVC.viewControllers.last as? UINavigationController)?.pushViewController(viewController, animated: true)
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            (splitVC.viewControllers.last as? UINavigationController)?.popToRootViewController(animated: false)
+            (splitVC.viewControllers.last as? UINavigationController)?.pushViewController(viewController, animated: true)
+        case .pad:
+            (splitVC.viewControllers.last as? UINavigationController)?.setViewControllers([viewController], animated: false)
+        default: break
+        }
     }
 }
 
