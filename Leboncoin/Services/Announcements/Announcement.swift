@@ -16,6 +16,7 @@ struct Announcement: Codable {
     let imageUrls: [String: String]
     let creationDate: String
     let isUrgent: Bool
+    var siret: String?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -26,5 +27,6 @@ struct Announcement: Codable {
         case imageUrls = "images_url"
         case creationDate = "creation_date"
         case isUrgent = "is_urgent"
+        case siret
     }
 }

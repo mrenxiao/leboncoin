@@ -43,6 +43,10 @@ struct AnnouncementViewModel {
         "\(announcement.price.clean) €"
     }
     
+    var siret: String {
+        announcement.siret ?? ""
+    }
+    
     var title: String {
         announcement.title
     }

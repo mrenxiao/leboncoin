@@ -8,59 +8,6 @@
 import Foundation
 import UIKit
 
-class UrgentView: UIView {
-    
-    enum Constant {
-        static let imageWidth: CGFloat = 20
-        static let padding: CGFloat = 8
-    }
-    
-    private lazy var urgentImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "exclamationmark.circle")
-        imageView.tintColor = .systemGray
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    
-    private lazy var urgentLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "Cette annonce est urgente"
-        label.textColor = .systemGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        commonInit()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        commonInit()
-    }
-    
-    private func commonInit() {
-        addSubview(urgentImageView)
-        addSubview(urgentLabel)
-        
-        urgentImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        urgentImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        urgentImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        urgentImageView.widthAnchor.constraint(equalToConstant: Constant.imageWidth).isActive = true
-        urgentImageView.heightAnchor.constraint(equalToConstant: Constant.imageWidth).isActive = true
-        
-        urgentLabel.leadingAnchor.constraint(equalTo: urgentImageView.trailingAnchor, constant: Constant.padding).isActive = true
-        urgentLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        urgentLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        urgentLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-    }
-}
-
 final class AnnouncementDetailViewController: UIViewController {
 
     // MARK: - Constant
@@ -86,23 +33,7 @@ final class AnnouncementDetailViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    
-    private lazy var categoryLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .systemGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private lazy var creationDateLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .systemGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
+
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
@@ -112,40 +43,22 @@ final class AnnouncementDetailViewController: UIViewController {
         return label
     }()
     
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.numberOfLines = 0
-        label.textColor = .label
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private lazy var priceLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .label
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private lazy var separatorView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemGray5
+    private lazy var headerTextView: HeaderTextView = {
+        let view = HeaderTextView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    private lazy var urgentView: UrgentView = {
-        let view = UrgentView()
+    private lazy var siretView: SiretView = {
+        let view = SiretView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+
     private lazy var verticalStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 8
+        stackView.spacing = 16
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -171,7 +84,7 @@ final class AnnouncementDetailViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .label
         view.backgroundColor = .white
         addSubviews()
-        configureConstraints()
+        addSiretViewIfNeeded()
         updateUI()
     }
     
@@ -179,16 +92,13 @@ final class AnnouncementDetailViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(imageView)
         scrollView.addSubview(verticalStackView)
-        verticalStackView.addArrangedSubview(titleLabel)
-        verticalStackView.addArrangedSubview(priceLabel)
-        verticalStackView.addArrangedSubview(categoryLabel)
-        verticalStackView.addArrangedSubview(creationDateLabel)
-        verticalStackView.addArrangedSubview(urgentView)
+        verticalStackView.addArrangedSubview(headerTextView)
+        headerTextView.viewModel = viewModel
+        
+        let separatorView = createSeparatorView()
         verticalStackView.addArrangedSubview(separatorView)
         verticalStackView.addArrangedSubview(descriptionLabel)
-    }
     
-    private func configureConstraints() {
         scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -208,13 +118,26 @@ final class AnnouncementDetailViewController: UIViewController {
         verticalStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -(2 * Constant.padding)).isActive = true
     }
     
+    private func addSiretViewIfNeeded() {
+        guard !viewModel.siret.isEmpty else { return }
+        
+        let separatorView = createSeparatorView()
+        verticalStackView.addArrangedSubview(separatorView)
+        verticalStackView.addArrangedSubview(siretView)
+        separatorView.heightAnchor.constraint(equalToConstant: Constant.separatorHeight).isActive = true
+        
+        siretView.siret = viewModel.siret
+    }
+    
+    private func createSeparatorView() -> UIView {
+        let view = UIView()
+        view.backgroundColor = .systemGray5
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }
+    
     private func updateUI() {
-        titleLabel.text = viewModel.title
-        priceLabel.text = viewModel.price
-        categoryLabel.text = viewModel.category
-        creationDateLabel.text = viewModel.creationDate
         descriptionLabel.text = viewModel.description
-        urgentView.isHidden = !viewModel.isUrgent
 
         viewModel.loadImage(isSmall: false) { data, error in
             if let data = data, let image = UIImage(data: data) {
