@@ -110,44 +110,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4D149D13299A85CF0053B1E2 /* Announcements */ = {
-			isa = PBXGroup;
-			children = (
-				4D149D16299A8AFB0053B1E2 /* Cell */,
-				4D149D2D299BF3C00053B1E2 /* Common */,
-				4D149D31299D132F0053B1E2 /* Views */,
-				4D149D2A299BDC740053B1E2 /* DetailViewController */,
-				4D149D11299A85930053B1E2 /* AnnouncementsViewController.swift */,
-				4D149D14299A85EB0053B1E2 /* AnnouncementsViewModel.swift */,
-			);
-			path = Announcements;
-			sourceTree = "<group>";
-		};
-		4D149D16299A8AFB0053B1E2 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				4D149D17299A8B170053B1E2 /* AnnouncementCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		4D149D1E299B85E10053B1E2 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				4D149D27299BAC350053B1E2 /* CategoriesManager */,
-				4D149D1F299B85E50053B1E2 /* ImageLoader */,
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
-		4D149D1F299B85E50053B1E2 /* ImageLoader */ = {
-			isa = PBXGroup;
-			children = (
-				4D149D20299B85ED0053B1E2 /* ImageLoader.swift */,
-			);
-			path = ImageLoader;
-			sourceTree = "<group>";
-		};
 		4D149D22299B94BD0053B1E2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,49 +117,6 @@
 				4D149D25299B99570053B1E2 /* Float+Utils.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		4D149D27299BAC350053B1E2 /* CategoriesManager */ = {
-			isa = PBXGroup;
-			children = (
-				4D149D28299BAC3D0053B1E2 /* CategoriesManager.swift */,
-			);
-			path = CategoriesManager;
-			sourceTree = "<group>";
-		};
-		4D149D2A299BDC740053B1E2 /* DetailViewController */ = {
-			isa = PBXGroup;
-			children = (
-				4D149D2B299BDC8A0053B1E2 /* AnnouncementDetailViewController.swift */,
-			);
-			path = DetailViewController;
-			sourceTree = "<group>";
-		};
-		4D149D2D299BF3C00053B1E2 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				4D149D1C299A90B00053B1E2 /* AnnouncementViewModel.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		4D149D2E299CF5060053B1E2 /* Welcome */ = {
-			isa = PBXGroup;
-			children = (
-				4D149D2F299CF51A0053B1E2 /* WelcomeViewController.swift */,
-			);
-			path = Welcome;
-			sourceTree = "<group>";
-		};
-		4D149D31299D132F0053B1E2 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				4D149D38299D1DA50053B1E2 /* HeaderTextView.swift */,
-				4D149D36299D178B0053B1E2 /* PaddingLabel.swift */,
-				4D149D34299D137D0053B1E2 /* SiretView.swift */,
-				4D149D32299D13490053B1E2 /* UrgentView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		4D4735FB299A24030092004D = {
@@ -223,16 +142,11 @@
 		4D473606299A24030092004D /* Leboncoin */ = {
 			isa = PBXGroup;
 			children = (
-				4D149D1E299B85E10053B1E2 /* Managers */,
-				4D9DF262299A25A200284DE9 /* Services */,
+				4DD55AD8299D2B6C00374740 /* App */,
+				4DD55ADA299D2B9D00374740 /* Components */,
+				4DD55AE1299D2BFD00374740 /* Domains */,
 				4D149D22299B94BD0053B1E2 /* Utils */,
-				4D149D2E299CF5060053B1E2 /* Welcome */,
-				4D149D13299A85CF0053B1E2 /* Announcements */,
-				4D473607299A24030092004D /* AppDelegate.swift */,
-				4D47360B299A24030092004D /* HomeViewController.swift */,
-				4D473610299A24040092004D /* Assets.xcassets */,
-				4D473612299A24040092004D /* LaunchScreen.storyboard */,
-				4D473615299A24040092004D /* Info.plist */,
+				4DD55AEB299D2DA800374740 /* Resources */,
 			);
 			path = Leboncoin;
 			sourceTree = "<group>";
@@ -254,17 +168,60 @@
 			path = LeboncoinUITests;
 			sourceTree = "<group>";
 		};
-		4D9DF262299A25A200284DE9 /* Services */ = {
+		4DD55AD8299D2B6C00374740 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				4D9DF267299A34F300284DE9 /* Announcements */,
-				4D9DF26A299A352A00284DE9 /* Categories */,
+				4D473607299A24030092004D /* AppDelegate.swift */,
+			);
+			name = App;
+			path = Leboncoin/App;
+			sourceTree = SOURCE_ROOT;
+		};
+		4DD55ADA299D2B9D00374740 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4DD55ADB299D2B9D00374740 /* Managers */,
+				4DD55ADE299D2B9D00374740 /* Services */,
 				4D9DF263299A270C00284DE9 /* NetworkService.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		4DD55ADB299D2B9D00374740 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				4DD55ADC299D2B9D00374740 /* ImageLoader */,
+				4DD55ADD299D2B9D00374740 /* CategoriesManager */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		4DD55ADC299D2B9D00374740 /* ImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				4D149D20299B85ED0053B1E2 /* ImageLoader.swift */,
+			);
+			path = ImageLoader;
+			sourceTree = "<group>";
+		};
+		4DD55ADD299D2B9D00374740 /* CategoriesManager */ = {
+			isa = PBXGroup;
+			children = (
+				4D149D28299BAC3D0053B1E2 /* CategoriesManager.swift */,
+			);
+			path = CategoriesManager;
+			sourceTree = "<group>";
+		};
+		4DD55ADE299D2B9D00374740 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4DD55ADF299D2B9D00374740 /* Announcements */,
+				4DD55AE0299D2B9D00374740 /* Categories */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		4D9DF267299A34F300284DE9 /* Announcements */ = {
+		4DD55ADF299D2B9D00374740 /* Announcements */ = {
 			isa = PBXGroup;
 			children = (
 				4D9DF268299A352100284DE9 /* Announcement.swift */,
@@ -273,13 +230,105 @@
 			path = Announcements;
 			sourceTree = "<group>";
 		};
-		4D9DF26A299A352A00284DE9 /* Categories */ = {
+		4DD55AE0299D2B9D00374740 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
 				4D9DF26D299A357700284DE9 /* AnnouncementCategory.swift */,
 				4D9DF26B299A354800284DE9 /* CategoriesService.swift */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		4DD55AE1299D2BFD00374740 /* Domains */ = {
+			isa = PBXGroup;
+			children = (
+				4DD55AE2299D2BFD00374740 /* Launch */,
+				4DD55AE3299D2BFD00374740 /* Announcements */,
+				4DD55AE9299D2BFD00374740 /* Welcome */,
+			);
+			path = Domains;
+			sourceTree = "<group>";
+		};
+		4DD55AE2299D2BFD00374740 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				4D473612299A24040092004D /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		4DD55AE3299D2BFD00374740 /* Announcements */ = {
+			isa = PBXGroup;
+			children = (
+				4DD55AE8299D2BFD00374740 /* Common */,
+				4DD55AE4299D2BFD00374740 /* AnnouncementsViewController */,
+				4DD55AE6299D2BFD00374740 /* AnnouncementDetailViewController */,
+				4D47360B299A24030092004D /* HomeViewController.swift */,
+			);
+			path = Announcements;
+			sourceTree = "<group>";
+		};
+		4DD55AE4299D2BFD00374740 /* AnnouncementsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4D149D11299A85930053B1E2 /* AnnouncementsViewController.swift */,
+				4D149D14299A85EB0053B1E2 /* AnnouncementsViewModel.swift */,
+				4DD55AE5299D2BFD00374740 /* Cell */,
+			);
+			path = AnnouncementsViewController;
+			sourceTree = "<group>";
+		};
+		4DD55AE5299D2BFD00374740 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4D149D17299A8B170053B1E2 /* AnnouncementCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		4DD55AE6299D2BFD00374740 /* AnnouncementDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4DD55AE7299D2BFD00374740 /* Views */,
+				4D149D2B299BDC8A0053B1E2 /* AnnouncementDetailViewController.swift */,
+			);
+			path = AnnouncementDetailViewController;
+			sourceTree = "<group>";
+		};
+		4DD55AE7299D2BFD00374740 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4D149D38299D1DA50053B1E2 /* HeaderTextView.swift */,
+				4D149D36299D178B0053B1E2 /* PaddingLabel.swift */,
+				4D149D34299D137D0053B1E2 /* SiretView.swift */,
+				4D149D32299D13490053B1E2 /* UrgentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4DD55AE8299D2BFD00374740 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4D149D1C299A90B00053B1E2 /* AnnouncementViewModel.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		4DD55AE9299D2BFD00374740 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				4D149D2F299CF51A0053B1E2 /* WelcomeViewController.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		4DD55AEB299D2DA800374740 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4D473610299A24040092004D /* Assets.xcassets */,
+				4D473615299A24040092004D /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -605,7 +654,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BR5PDY47QC;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Leboncoin/Info.plist;
+				INFOPLIST_FILE = Leboncoin/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -634,7 +683,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BR5PDY47QC;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Leboncoin/Info.plist;
+				INFOPLIST_FILE = Leboncoin/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
