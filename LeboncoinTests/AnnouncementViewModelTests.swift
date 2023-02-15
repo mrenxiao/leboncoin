@@ -8,7 +8,7 @@
 import XCTest
 @testable import Leboncoin
 
-class AnnouncementCellViewModelTests: XCTestCase {
+class AnnouncementViewModelTests: XCTestCase {
     
     func testPropertiesAreFormattedCorrectly() {
         let mock = Announcement(

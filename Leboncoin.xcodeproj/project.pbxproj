@@ -25,7 +25,7 @@
 		4D47360C299A24030092004D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47360B299A24030092004D /* HomeViewController.swift */; };
 		4D473611299A24040092004D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D473610299A24040092004D /* Assets.xcassets */; };
 		4D473614299A24040092004D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D473612299A24040092004D /* LaunchScreen.storyboard */; };
-		4D47361F299A24050092004D /* AnnouncementCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47361E299A24050092004D /* AnnouncementCellViewModelTests.swift */; };
+		4D47361F299A24050092004D /* AnnouncementViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47361E299A24050092004D /* AnnouncementViewModelTests.swift */; };
 		4D473629299A24050092004D /* LeboncoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D473628299A24050092004D /* LeboncoinUITests.swift */; };
 		4D47362B299A24050092004D /* LeboncoinUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47362A299A24050092004D /* LeboncoinUITestsLaunchTests.swift */; };
 		4D9DF264299A270C00284DE9 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DF263299A270C00284DE9 /* NetworkService.swift */; };
@@ -33,6 +33,8 @@
 		4D9DF269299A352100284DE9 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DF268299A352100284DE9 /* Announcement.swift */; };
 		4D9DF26C299A354800284DE9 /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DF26B299A354800284DE9 /* CategoriesService.swift */; };
 		4D9DF26E299A357700284DE9 /* AnnouncementCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DF26D299A357700284DE9 /* AnnouncementCategory.swift */; };
+		4DD55AEE299D2E7200374740 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DD55AF0299D2E7200374740 /* Localizable.strings */; };
+		4DD55AF2299D2EEE00374740 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD55AF1299D2EEE00374740 /* String+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +76,7 @@
 		4D473613299A24040092004D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D473615299A24040092004D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D47361A299A24050092004D /* LeboncoinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeboncoinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D47361E299A24050092004D /* AnnouncementCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementCellViewModelTests.swift; sourceTree = "<group>"; };
+		4D47361E299A24050092004D /* AnnouncementViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementViewModelTests.swift; sourceTree = "<group>"; };
 		4D473624299A24050092004D /* LeboncoinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeboncoinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D473628299A24050092004D /* LeboncoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeboncoinUITests.swift; sourceTree = "<group>"; };
 		4D47362A299A24050092004D /* LeboncoinUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeboncoinUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -83,6 +85,8 @@
 		4D9DF268299A352100284DE9 /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
 		4D9DF26B299A354800284DE9 /* CategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesService.swift; sourceTree = "<group>"; };
 		4D9DF26D299A357700284DE9 /* AnnouncementCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementCategory.swift; sourceTree = "<group>"; };
+		4DD55AEF299D2E7200374740 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4DD55AF1299D2EEE00374740 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,7 @@
 			children = (
 				4D149D23299B95270053B1E2 /* DateFormatter+Utils.swift */,
 				4D149D25299B99570053B1E2 /* Float+Utils.swift */,
+				4DD55AF1299D2EEE00374740 /* String+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -154,7 +159,7 @@
 		4D47361D299A24050092004D /* LeboncoinTests */ = {
 			isa = PBXGroup;
 			children = (
-				4D47361E299A24050092004D /* AnnouncementCellViewModelTests.swift */,
+				4D47361E299A24050092004D /* AnnouncementViewModelTests.swift */,
 			);
 			path = LeboncoinTests;
 			sourceTree = "<group>";
@@ -327,6 +332,7 @@
 			children = (
 				4D473610299A24040092004D /* Assets.xcassets */,
 				4D473615299A24040092004D /* Info.plist */,
+				4DD55AF0299D2E7200374740 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -436,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D473614299A24040092004D /* LaunchScreen.storyboard in Resources */,
+				4DD55AEE299D2E7200374740 /* Localizable.strings in Resources */,
 				4D473611299A24040092004D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,6 +468,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DD55AF2299D2EEE00374740 /* String+Utils.swift in Sources */,
 				4D149D26299B99570053B1E2 /* Float+Utils.swift in Sources */,
 				4D149D35299D137D0053B1E2 /* SiretView.swift in Sources */,
 				4D149D18299A8B170053B1E2 /* AnnouncementCell.swift in Sources */,
@@ -489,7 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D47361F299A24050092004D /* AnnouncementCellViewModelTests.swift in Sources */,
+				4D47361F299A24050092004D /* AnnouncementViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +532,14 @@
 				4D473613299A24040092004D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4DD55AF0299D2E7200374740 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4DD55AEF299D2E7200374740 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

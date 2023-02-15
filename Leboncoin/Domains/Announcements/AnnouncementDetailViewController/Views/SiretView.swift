@@ -14,7 +14,7 @@ class SiretView: UIView {
         label.font = UIFont.systemFont(ofSize: 14)
         label.layer.borderWidth = 1
         label.layer.cornerRadius = 4
-        label.text = "Pro"
+        label.text = "label.pro".localized
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -23,7 +23,6 @@ class SiretView: UIView {
     private lazy var siretLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.text = ""
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -61,6 +60,6 @@ class SiretView: UIView {
     }
     
     private func updateSiretLabel() {
-        siretLabel.text = "Nº SIRET : " + siret
+        siretLabel.text = String(format: "label.siret".localized, siret)
     }
 }

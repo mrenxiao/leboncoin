@@ -25,7 +25,7 @@ class UrgentView: UIView {
     private lazy var urgentLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "Cette annonce est urgente"
+        label.text = "label.urgent".localized
         label.textColor = .systemGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

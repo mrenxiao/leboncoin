@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Leboncoin
+
+  Created by Renxiao Mo on 15/02/2023.
+  
+*/
+
+"label.pro" = "Pro";
+"label.siret" = "Nº SIRET : %@";
+"label.urgent" = "Cette annonce est urgente";
+"label.welcome.title" = "Bienvenue sur leboncoin";
+"label.welcome.description" = "Trouvez la bonne affaire parmi les millions de petites annonces leboncoin";

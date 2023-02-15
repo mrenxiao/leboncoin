@@ -12,7 +12,7 @@ class WelcomeViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.text = "Bienvenue sur leboncoin"
+        label.text = "label.welcome.title".localized
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -21,7 +21,7 @@ class WelcomeViewController: UIViewController {
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.text = "Trouvez la bonne affaire parmi les millions de petites annonces leboncoin"
+        label.text = "label.welcome.description".localized
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
