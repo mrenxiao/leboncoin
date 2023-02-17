@@ -23,7 +23,7 @@ class AnnouncementViewModelTests: XCTestCase {
             ],
             creationDate: "2019-11-05T15:56:59+0000",
             isUrgent: false)
-        let viewModel = AnnouncementViewModel(announcement: mock, categoriesProvider: CategoriesProviderMock())
+        let viewModel = AnnouncementViewModel(announcement: mock, categoriesProvider: MockCategoriesProvider())
         
         XCTAssertEqual(viewModel.category, "Bricolage")
         XCTAssertEqual(viewModel.creationDate, "5 novembre 15:56")
@@ -36,7 +36,7 @@ class AnnouncementViewModelTests: XCTestCase {
     }
 }
 
-class CategoriesProviderMock: CategoriesProvider {
+class MockCategoriesProvider: CategoriesProvider {
     var categories: [AnnouncementCategory] = [
         AnnouncementCategory(id: 1, name: "Véhicule"),
         AnnouncementCategory(id: 2, name: "Mode"),

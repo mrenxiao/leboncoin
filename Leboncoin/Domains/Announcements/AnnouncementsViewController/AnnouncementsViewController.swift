@@ -69,7 +69,7 @@ final class AnnouncementsViewController: UITableViewController {
         }
 
         let item = viewModel.announcements[indexPath.row]
-        cell.configure(with: item, categoriesProvider: viewModel.categoriesProvider)
+        cell.configure(with: AnnouncementViewModel(announcement: item, categoriesProvider: viewModel.categoriesProvider))
         
         return cell
     }

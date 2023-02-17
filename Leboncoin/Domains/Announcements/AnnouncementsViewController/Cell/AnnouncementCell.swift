@@ -136,9 +136,7 @@ class AnnouncementCell: UITableViewCell {
         bottomTextStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constant.padding).isActive = true
     }
     
-    func configure(with announcement: Announcement, categoriesProvider: CategoriesProvider) {
-        let viewModel = AnnouncementViewModel(announcement: announcement, categoriesProvider: categoriesProvider)
-        
+    func configure(with viewModel: AnnouncementViewModel) {
         titleLabel.text = viewModel.title
         priceLabel.text = viewModel.price
         categoryLabel.text = viewModel.category

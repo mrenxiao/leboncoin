@@ -33,6 +33,9 @@
 		4D9DF269299A352100284DE9 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DF268299A352100284DE9 /* Announcement.swift */; };
 		4D9DF26C299A354800284DE9 /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DF26B299A354800284DE9 /* CategoriesService.swift */; };
 		4D9DF26E299A357700284DE9 /* AnnouncementCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DF26D299A357700284DE9 /* AnnouncementCategory.swift */; };
+		4DA27570299EF429000623DF /* AnnouncementsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA2756F299EF429000623DF /* AnnouncementsViewModelTests.swift */; };
+		4DA27572299EF458000623DF /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA27571299EF458000623DF /* Mocks.swift */; };
+		4DA27575299EF51F000623DF /* TestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA27574299EF51F000623DF /* TestFactory.swift */; };
 		4DD55AEE299D2E7200374740 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DD55AF0299D2E7200374740 /* Localizable.strings */; };
 		4DD55AF2299D2EEE00374740 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD55AF1299D2EEE00374740 /* String+Utils.swift */; };
 /* End PBXBuildFile section */
@@ -85,6 +88,9 @@
 		4D9DF268299A352100284DE9 /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
 		4D9DF26B299A354800284DE9 /* CategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesService.swift; sourceTree = "<group>"; };
 		4D9DF26D299A357700284DE9 /* AnnouncementCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementCategory.swift; sourceTree = "<group>"; };
+		4DA2756F299EF429000623DF /* AnnouncementsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementsViewModelTests.swift; sourceTree = "<group>"; };
+		4DA27571299EF458000623DF /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
+		4DA27574299EF51F000623DF /* TestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFactory.swift; sourceTree = "<group>"; };
 		4DD55AEF299D2E7200374740 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4DD55AF1299D2EEE00374740 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,7 +165,10 @@
 		4D47361D299A24050092004D /* LeboncoinTests */ = {
 			isa = PBXGroup;
 			children = (
+				4DA27571299EF458000623DF /* Mocks.swift */,
+				4DA27574299EF51F000623DF /* TestFactory.swift */,
 				4D47361E299A24050092004D /* AnnouncementViewModelTests.swift */,
+				4DA2756F299EF429000623DF /* AnnouncementsViewModelTests.swift */,
 			);
 			path = LeboncoinTests;
 			sourceTree = "<group>";
@@ -498,6 +507,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D47361F299A24050092004D /* AnnouncementViewModelTests.swift in Sources */,
+				4DA27570299EF429000623DF /* AnnouncementsViewModelTests.swift in Sources */,
+				4DA27572299EF458000623DF /* Mocks.swift in Sources */,
+				4DA27575299EF51F000623DF /* TestFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

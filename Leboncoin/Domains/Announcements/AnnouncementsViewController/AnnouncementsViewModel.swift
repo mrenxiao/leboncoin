@@ -57,6 +57,7 @@ final class AnnouncementsViewModel: ObservableObject {
                 completionHandler?()
             }, receiveValue: { [weak self] categories in
                 self?.categoriesProvider.categories = categories
+                completionHandler?()
             })
             .store(in: &cancellables)
     }
